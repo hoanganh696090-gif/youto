@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#080d24" />
+  <title>Đấu Trường Tri Thức</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <main class="app-shell">
+    <section class="screen start-screen is-active" id="start-screen" aria-labelledby="game-title">
+      <div class="start-content">
+        <div class="brand-mark" aria-hidden="true">✦</div>
+        <p class="eyebrow">THỬ THÁCH KIẾN THỨC</p>
+        <h1 id="game-title">Đấu Trường<br /><span>Tri Thức</span></h1>
+        <p class="intro">
+          10 câu hỏi đang chờ bạn. Hãy chọn thật chính xác để chinh phục giải thưởng cao nhất!
+        </p>
+        <div class="start-stats" aria-label="Thông tin trò chơi">
+          <span>10 câu hỏi</span>
+          <span class="stat-divider" aria-hidden="true"></span>
+          <span>3 quyền trợ giúp</span>
+        </div>
+        <button class="primary-button" id="start-button" type="button">
+          Chơi ngay <span aria-hidden="true">→</span>
+        </button>
+        <p class="start-note">Sẵn sàng chưa? Vòng chơi bắt đầu ngay bây giờ.</p>
+      </div>
+      <div class="orbit orbit-one" aria-hidden="true"></div>
+      <div class="orbit orbit-two" aria-hidden="true"></div>
+    </section>
+
+    <section class="screen game-screen" id="game-screen" aria-label="Màn hình trò chơi">
+      <header class="game-header">
+        <a class="wordmark" href="#" aria-label="Đấu Trường Tri Thức">✦ <span>ĐẤU TRƯỜNG TRI THỨC</span></a>
+        <div class="question-counter" id="question-counter">CÂU 01 <span>/ 10</span></div>
+      </header>
+
+      <div class="game-layout">
+        <section class="quiz-panel" aria-label="Câu hỏi và đáp án">
+          <div class="progress-track" aria-label="Tiến độ trò chơi">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+
+          <div class="lifelines" aria-label="Quyền trợ giúp">
+            <button class="lifeline-button" id="fifty-button" type="button" title="Loại bỏ hai đáp án sai">
+              <span class="lifeline-icon">½</span>
+              <span>50:50</span>
+            </button>
+            <button class="lifeline-button" id="audience-button" type="button" title="Xem ý kiến khán giả">
+              <span class="lifeline-icon">▥</span>
+              <span>Khán giả</span>
+            </button>
+            <button class="lifeline-button" id="change-button" type="button" title="Đổi sang câu hỏi khác">
+              <span class="lifeline-icon">↻</span>
+              <span>Đổi câu</span>
+            </button>
+          </div>
+
+          <div class="question-area" aria-live="polite">
+            <p class="question-label">CÂU HỎI</p>
+            <h2 id="question-text"></h2>
+          </div>
+
+          <div class="answers-grid" id="answers-grid"></div>
+          <div class="feedback" id="feedback" role="status" aria-live="polite" hidden></div>
+          <button class="next-button" id="next-button" type="button" hidden></button>
+        </section>
+
+        <aside class="prize-panel" aria-label="Các mức thưởng">
+          <div class="prize-heading"><span>✦</span> GIẢI THƯỞNG</div>
+          <ol class="prize-ladder" id="prize-ladder"></ol>
+          <div class="current-prize">
+            <span>TIỀN THƯỞNG ĐÃ NHẬN</span>
+            <strong id="earned-prize">0 ₫</strong>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="screen result-screen" id="result-screen" aria-labelledby="result-title">
+      <div class="result-card">
+        <div class="result-icon" id="result-icon" aria-hidden="true">✦</div>
+        <p class="eyebrow" id="result-eyebrow">TRÒ CHƠI KẾT THÚC</p>
+        <h2 id="result-title">Bạn đã hoàn thành!</h2>
+        <p class="result-description" id="result-description"></p>
+        <div class="result-amount">
+          <span>TỔNG TIỀN THƯỞNG</span>
+          <strong id="final-prize">0 ₫</strong>
+        </div>
+        <button class="primary-button" id="restart-button" type="button">
+          Chơi lại <span aria-hidden="true">↻</span>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="audience-dialog" id="audience-dialog" aria-labelledby="audience-title">
+    <div class="dialog-topline"><span class="eyebrow">QUYỀN TRỢ GIÚP</span><button id="close-dialog"
+        class="close-button" type="button" aria-label="Đóng">×</button></div>
+    <h2 id="audience-title">Khán giả bình chọn</h2>
+    <p class="audience-hint">Đây là lựa chọn của khán giả trong trường quay.</p>
+    <div class="poll-results" id="poll-results"></div>
+    <button class="primary-button dialog-button" id="got-it-button" type="button">Đã hiểu</button>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
